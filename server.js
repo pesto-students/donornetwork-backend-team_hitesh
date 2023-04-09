@@ -10,13 +10,15 @@ import bloodcampRouter from './routes/bloodcampRouter.js'
 import userRouter from './routes/userRouter.js'
 import areaRouter from './routes/areaRouter.js'
 import blogRouter from './routes/blogRouter.js'
-
+import cors from 'cors'
 dotenv.config();
 const PORT = process.env.PORT;
 
 
 const app = express();
-
+app.use(cors({
+    origin: '*'
+  }));
 app.use(function(req, res, next) {
     next()
 })
