@@ -4,7 +4,8 @@ import { generateAccessToken,authenticateToken } from "../middleware/authenticat
  
 const router = Router();
 
-router.get('/',authenticateToken,bloodtype.getTypes);
+//router.get('/',authenticateToken,bloodtype.getTypes);
+router.get('/',bloodtype.getTypes);
 router.get('/:id',bloodtype.getById);
 router.post('/:id/edit',bloodtype.updateById);
 router.post('/delete',bloodtype.deleteById);

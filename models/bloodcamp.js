@@ -1,8 +1,13 @@
  
 import db from '../config/db_connect.js';
 
-const getBloodCenters=async (callback)=>{
-    db.query('SELECT * FROM donation_camp WHERE `status`=? AND type=?  ORDER BY date_format(donation_startdatetime,"%Y-%m-%d") ASC',[1,'center'],callback);
+const getBloodCenters=async (state_id,city_id,callback)=>{
+    try {
+        db.query('SELECT * FROM donation_camp WHERE `status`=? AND type=? and state_id=? and city_id=? ',[1,'center',state_id,city_id],callback);
+    } catch (error) {
+        return []
+    }
+    
 }
 const getAllCenterByUser=async (id,callback)=>{
     db.query('SELECT * FROM donation_camp WHERE status=? AND type=? AND createdBy_id=? ORDER BY id DESC',[1,'center',id],callback);

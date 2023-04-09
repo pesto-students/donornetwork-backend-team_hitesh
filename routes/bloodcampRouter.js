@@ -3,7 +3,7 @@ import bloodcamp from '../controllers/bloodcampController.js';
 
 const router = Router();
 
-router.get('/centers',bloodcamp.getBloodCenters);
+router.get('/centers/:state_id/:city_id',bloodcamp.getBloodCenters);
 router.get('/:id/usercenters',bloodcamp.getAllCenterByUser);
 router.get('/camps',bloodcamp.getBloodCamps);
 router.get('/:id/usercamps',bloodcamp.getAllCampsByUser);

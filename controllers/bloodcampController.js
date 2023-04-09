@@ -1,11 +1,20 @@
 import bloodcamp from '../models/bloodcamp.js';
 
 const getBloodCenters=(req,res)=>{
-    bloodcamp.getBloodCenters((err,rows)=>{
-        // console.log(rows)
-        if (err) throw err;
+ 
+    try {
+        bloodcamp.getBloodCenters(req.params.state_id,req.params.city_id,(err,rows)=>{
+       
+        if (err) {
+            console.log(err)
+               res.send({error:true});
+        }
         res.send(rows)
     })
+    } catch (error) {
+        res.send({error_found:true})
+    }
+    
 }
 
 const getAllCenterByUser=(req,res)=>{
