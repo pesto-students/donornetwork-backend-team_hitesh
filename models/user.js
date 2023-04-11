@@ -14,7 +14,7 @@ const updateById=async(data,id,callback)=>{
 }
 
 const store=async (data,callback)=>{
-    db.query('INSERT INTO `users` (`name`, `mobile`, `email`, `address`, `area_id`, `city_id`, `state_id`, `country_id`,`zipcode`, `bloodtype_id`, `latitude`, `longitude`, `donate_status`,`status`, `datetime`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);',[data.name,data.mobile,data.email,data.address,data.area_id, data.city_id,data.state_id,data.country_id,data.zipcode,data.bloodcode_id,data.latitude,data.longitude,0,1,new Date()],callback);
+    db.query('INSERT INTO `users` (`name`, `mobile`, `email`, `city_id`,   `bloodtype_id`, `donate_status`,`status`, `datetime`) VALUES (?,?,?,?,?,?,?,?);',[data.name,data.mobile,data.email,data.city_id,data.bloodcode_id,0,1,new Date()],callback);
 }
 
 const deleteById = async (data,callback)=>{
